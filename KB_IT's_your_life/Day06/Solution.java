@@ -1,4 +1,5 @@
 package s1210;
+//SWEA1210문제
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
