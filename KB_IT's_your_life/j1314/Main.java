@@ -29,41 +29,37 @@ C F K N
 D E L M
  */
 public class Main {
-	public static void main(String[] args) {
-		Scanner sc=new Scanner(System.in);
-		int n=sc.nextInt();
-		
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+		int n=Integer.parseInt(br.readLine());
 		char[][] square=new char[n][n];
-
-		int alpha = 0;
-		for(int i=0; i< n; i++) {
-			if(i%2==0){
+		char ch='A';
+		
+		for(int i=0; i<n; i++) {
+			if(i%2==0) {
 				int count=0;
-				while(count < n) {
-                    square[count++][i] = (char)(65+(alpha++%26));
+				while(count<n) {
+					square[count++][i]=ch++;
+					if(ch>'Z') {
+						ch='A';
+					}
 				}
-            }
-			else{
+			}
+			else {
 				int count=n-1;
-				while(count >= 0) {
-					square[count--][i] = (char)(65+(alpha++%26));
-	            }
+				while(count>=0) {
+					square[count--][i]=ch++;
+					if(ch>'Z') {
+						ch='A';
+					}
+				}
 			}
 		}
-				
 		for(int i=0; i<n; i++) {
 			for(int j=0; j<n; j++) {
-				System.out.println(square[i][j]+" ");
+				System.out.print(square[i][j]+ " ");
 			}
-            System.out.println();
+			System.out.println();
 		}
-		sc.close();
-//	
-//		int c=65; //A
-//		int count=0;
-//		for(int i=0; i<50; i++) {
-//			System.out.println((char)(c+count+i)%26);
-//		}
-	
 	}
 }
